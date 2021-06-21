@@ -82,7 +82,7 @@ In order to register a cluster to deploy Apps on it, the following steps are req
 
 ## 4. Create New App
 
-In the UI, Click on `+ NEW APP` button and enter the following values:
+In the UI, Click on `+ NEW APP` button and enter the following values (default options if not specified):
 - **Application Name**: nginx
 - **Project**: default
 - **Sync Policy**: Automatic
@@ -91,3 +91,27 @@ In the UI, Click on `+ NEW APP` button and enter the following values:
 - **Path**: helm-clinic-app
 - **Cluster URL**: https://kubernetes.docker.internal:6443
 - **namespace**: default
+
+Click on Create button to install the app! App wil be available on UI as follows.
+
+![Image](images/argo-app.png)
+
+App wil be synced and installed on *default* namespace:
+```
+kubectl get pods -n default
+NAME                                    READY   STATUS    RESTARTS   AGE
+nginx-helm-clinic-app-95749b6fc-sxlhg   1/1     Running   0          2m17s
+```
+
+>NOTE: Any changes on the folder [./helm-clinic-app/](./helm-clinic-app/) will redeploy a new version of our application!!
+
+## 5. Accessing Deployed Application
+
+Once deployed application via ArgoCD, we can expose it via port-forward with the following command:
+```
+kubectl port-forward svc/nginx-helm-clinic-app -n default 8000:80
+```
+
+And access http://localhost:8000 in a browser:
+
+![Image](images/argo-nginx.png)
