@@ -13,7 +13,7 @@ Setup gitOps for an application.
 
 2. **kubectl** installed and pointing to local cluster context. Installation tutorial [here](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/). Kubectl local context will be available in `~/.kube/config` file.
 
-3. Argocd CLI installed. Installation tutorial [here](https://argo-cd.readthedocs.io/en/stable/cli_installation/).
+3. **argocd** CLI installed. Installation tutorial [here](https://argo-cd.readthedocs.io/en/stable/cli_installation/).
 
 
 ## 1. Install ArgoCD
@@ -103,7 +103,7 @@ NAME                                    READY   STATUS    RESTARTS   AGE
 nginx-helm-clinic-app-95749b6fc-sxlhg   1/1     Running   0          2m17s
 ```
 
->NOTE: Any changes on the folder [./helm-clinic-app/](./helm-clinic-app/) will redeploy a new version of our application!!
+>NOTE: Any changes on the folder [./helm-clinic-app/](./helm-clinic-app/) will redeploy a new version of our application automatically!!
 
 ## 5. Accessing Deployed Application
 
