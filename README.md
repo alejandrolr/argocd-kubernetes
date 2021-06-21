@@ -83,9 +83,11 @@ In order to register a cluster to deploy Apps on it, the following steps are req
 ## 4. Create New App
 
 In the UI, Click on `+ NEW APP` button and enter the following values:
-- **Application Name**: Clinic Application
+- **Application Name**: nginx
 - **Project**: default
 - **Sync Policy**: Automatic
 - **Repository URL**: https://github.com/alejandrolr/argocd-kubernetes.git
 - **Revision**: HEAD
 - **Path**: helm-clinic-app
+- **Cluster URL**: https://kubernetes.docker.internal:6443
+- **namespace**: default
